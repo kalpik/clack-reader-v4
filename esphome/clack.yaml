@@ -16,8 +16,8 @@ substitutions:
 
 packages:
   remote_package:
-    url: https://github.com/fonske/clack-reader-v4
-    ref: main
+    url: https://github.com/kalpik/clack-reader-v4
+    ref: custom
     refresh: 0s
     files: [ 
       esphome/clack_dv_tof2/.clack-base.yaml, 
@@ -39,7 +39,7 @@ time:
     id: sntp_time
     timezone: ${timezone}
     # Enable this with your own NTP server if your device is on a no internet IOT lan. 
-    #servers: 192.168.X.X
+    servers: 192.168.20.1
 #    servers:
 #     - 0.pool.ntp.org
 #     - 1.pool.ntp.org
@@ -49,6 +49,10 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   fast_connect: true
+  manual_ip:
+    static_ip: 192.168.20.35
+    gateway: 192.168.20.1
+    subnet: 255.255.255.0
   power_save_mode: light
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
