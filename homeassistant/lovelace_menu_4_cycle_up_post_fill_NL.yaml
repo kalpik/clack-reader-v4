@@ -9,7 +9,7 @@
                   - entity: sensor.clack_watermeter
                     type: custom:multiple-entity-row
                     icon: mdi:cup-water
-                    name: Water ontharder
+                    name: Waterontharder
                     secondary_info:
                       entity: sensor.clack_cyclus_stap
                       name: 'cyclus: '
@@ -28,7 +28,7 @@
                     padding: 5px 25px;
                     font-weight: bold;
                   }          
-                title: Water ontharder
+                title: Waterontharder
               - entities:
                   - entity: sensor.clack_waterontharder_procent_ltr_over
                     max: 100
@@ -122,7 +122,7 @@
           - type: entities
             entities:
               - entity: sensor.clack_werkings_tijd
-                name: Werkings tijd
+                name: Werkingstijd
               - entity: sensor.clack_verbruikt
                 name: Verbruikt
               - entity: sensor.clack_brine
@@ -135,11 +135,11 @@
                 name: Fill
               - entity: sensor.clack_run_time
                 name: Totale tijd
-            title: History
+            title: Historie
       - type: entities
         entities:
           - entity: sensor.clack_watermeter
-            name: Water meter
+            name: Watermeter
           - entity: sensor.clack_waterontharder_ltr_over
             name: Waterontharder ltr over
           - entity: sensor.clack_waterontharder_m3_over
@@ -213,7 +213,7 @@
           - type: history-graph
             entities:
               - entity: sensor.clack_watermeter
-                name: Water meter
+                name: Watermeter
             hours_to_show: 1.5
       - type: entities
         entities:
