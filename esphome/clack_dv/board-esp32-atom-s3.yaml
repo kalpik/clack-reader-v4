@@ -60,6 +60,35 @@ binary_sensor:
         return false;
       }
 
+    ## Push button on top of Atom S3 lite for status led
+    ## Long push = led brightness changes
+    ## Short push = led On or Off
+  - platform: gpio
+    pin:
+      number: GPIO41
+      inverted: true
+      mode: INPUT_PULLUP
+    name: "Brightness Button"
+    id: brightness_button
+    internal: true
+    icon: mdi:brightness-6
+    on_multi_click:
+      - timing:
+          - ON for at least 1s
+        then:
+          - logger.log: "Long press detected - adjust brightness"
+          - script.execute: adjust_brightness_loop
+
+      - timing:
+          - ON for at most 700ms
+          - OFF for at least 50ms
+        then:
+          - logger.log: "Short press detected - toggle LED on/off"
+          - light.toggle: status_led
+
+    on_release:
+      then:
+        - script.stop: adjust_brightness_loop
 
 # ## temporary test button for testing regeneration pulse
 switch:
@@ -121,36 +150,6 @@ button:
         - script.stop: cycle_steps_pre_downflow
         - script.execute: reset_cycle_steps
         - script.wait: reset_cycle_steps
-
-## Push button on top of Atom S3 lite
-## Short push = led On or Off
-## Long push = led brightness changes
-  - platform: gpio
-    pin:
-      number: GPIO41
-      inverted: true
-      mode: INPUT_PULLUP
-    name: "Brightness Button"
-    id: brightness_button
-    internal: true
-    icon: mdi:brightness-6
-    on_multi_click:
-      - timing:
-          - ON for at least 1s
-        then:
-          - logger.log: "Long press detected - adjust brightness"
-          - script.execute: adjust_brightness_loop
-
-      - timing:
-          - ON for at most 700ms
-          - OFF for at least 50ms
-        then:
-          - logger.log: "Short press detected - toggle LED on/off"
-          - light.toggle: status_led
-
-    on_release:
-      then:
-        - script.stop: adjust_brightness_loop
 
 ##############################################
 ## STATUS LED
