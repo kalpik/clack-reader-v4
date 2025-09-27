@@ -73,6 +73,7 @@ ota:
 
 # Enable captive portal
 captive_portal:
+  id: id_captive_portal
   
 # Enable logger
 logger:
