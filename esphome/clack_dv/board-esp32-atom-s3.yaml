@@ -3,7 +3,7 @@
 esp32:
   ## Atom S3 lite
   board: esp32-s3-devkitc-1
-  version: esp32s3
+  variant: esp32s3
   flash_size: 8MB
   cpu_frequency: 240MHz
   framework:
