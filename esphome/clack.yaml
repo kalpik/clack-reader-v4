@@ -22,8 +22,8 @@ packages:
     refresh: 0s
     files: [
       esphome/clack_dv/.clack-base.yaml,
-#      esphome/clack_dv/.tof1.yaml,
-      esphome/clack_dv/.tof2.yaml,
+      esphome/clack_dv/.tof1.yaml,
+#      esphome/clack_dv/.tof2.yaml,
       esphome/clack_dv/.waterflow.yaml,
       esphome/clack_dv/.clack-optional.yaml,
 #      esphome/clack_dv/.clack-labels-nl.yaml,
